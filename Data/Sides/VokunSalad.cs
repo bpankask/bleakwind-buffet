@@ -11,10 +11,16 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Class to represent the Vokun Salad side.
+    /// </summary>
     public class VokunSalad
     {
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;

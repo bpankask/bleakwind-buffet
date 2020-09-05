@@ -11,14 +11,20 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class to represent the Warrior Water drink.
+    /// </summary>
     public class WarriorWater
     {
         private bool ice = true;
 
-        private bool lemmon = false;
+        private bool lemon = false;
 
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get, set ice.
+        /// </summary>
         public bool Ice
         {
             get => ice;
@@ -26,13 +32,19 @@ namespace BleakwindBuffet.Data.Drinks
             set => ice = value;
         }
 
-        public bool Lemmon
+        /// <summary>
+        /// Get, set lemon.
+        /// </summary>
+        public bool Lemon
         {
-            get => lemmon;
+            get => lemon;
 
-            set => lemmon = value;
+            set => lemon = value;
         }
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;
@@ -67,8 +79,8 @@ namespace BleakwindBuffet.Data.Drinks
                 if (ice == false)
                     specialInstructions.Add("Hold ice");
 
-                if(lemmon == true)
-                    specialInstructions.Add("Add lemmon");
+                if(lemon == true)
+                    specialInstructions.Add("Add lemon");
                 return specialInstructions;
             }
         }

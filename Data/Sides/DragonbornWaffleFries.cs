@@ -11,11 +11,17 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Class to represent the Dragonborn Waffle Fries side.
+    /// </summary>
     public class DragonbornWaffleFries
     {
 
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;

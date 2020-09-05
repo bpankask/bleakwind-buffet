@@ -8,8 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bleakwindbuffet.Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent the Double Draugr entree.
+    /// </summary>
     public class DoubleDraugr
     {
         private bool bun = true;
@@ -126,6 +129,11 @@ namespace Bleakwindbuffet.Data.Entrees
             get
             {
                 List<string> specialInstructions = new List<string>();
+                if (!bun) specialInstructions.Add("Hold bun");
+                if (!ketchup) specialInstructions.Add("Hold ketchup");
+                if (!mustard) specialInstructions.Add("Hold mustard");
+                if (!pickle) specialInstructions.Add("Hold pickle");
+                if (!cheese) specialInstructions.Add("Hold cheese");
                 if (!tomato) specialInstructions.Add("Hold tomato");
                 if (!lettuce) specialInstructions.Add("Hold lettuce");
                 if (!mayo) specialInstructions.Add("Hold mayo");

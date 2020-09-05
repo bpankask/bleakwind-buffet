@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent the Smokehouse Skeleton entree.
+    /// </summary>
     public class SmokehouseSkeleton
     {
         private bool sausageLink = true;

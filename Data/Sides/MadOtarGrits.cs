@@ -11,10 +11,16 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Class to represent the Mad Otar Grits side.
+    /// </summary>
     public class MadOtarGrits
     {
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get or set size.
+        /// </summary>
         public Size Size
         {
             get => size;

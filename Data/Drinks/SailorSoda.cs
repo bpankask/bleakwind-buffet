@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class to represent the Sailor Soda drink.
+    /// </summary>
     public class SailorSoda
     {
         private bool ice = true;
@@ -19,6 +22,9 @@ namespace BleakwindBuffet.Data.Drinks
 
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
+        /// <summary>
+        /// Get, set ice.
+        /// </summary>
         public bool Ice
         {
             get => ice;
@@ -26,6 +32,9 @@ namespace BleakwindBuffet.Data.Drinks
             set => ice = value;
         }
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;
@@ -33,6 +42,9 @@ namespace BleakwindBuffet.Data.Drinks
             set => size = value;
         }
 
+        /// <summary>
+        /// Get, set flavor.
+        /// </summary>
         public SodaFlavor Flavor
         {
             get => flavor;
@@ -113,7 +125,7 @@ namespace BleakwindBuffet.Data.Drinks
                     break;
 
                 case Size.Medium:
-                    sb.Append("Meduim ");
+                    sb.Append("Medium ");
                     break;
 
                 default:

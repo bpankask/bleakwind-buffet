@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent the Garden Orc Omelette entree.
+    /// </summary>
     public class GardenOrcOmelette
     {
         private bool broccoli = true;

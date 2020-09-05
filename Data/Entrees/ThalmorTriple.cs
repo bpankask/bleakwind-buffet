@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent the Thalmor Triple entree.
+    /// </summary>
     public class ThalmorTriple
     {
         private bool bun = true;
@@ -150,6 +153,14 @@ namespace BleakwindBuffet.Data.Entrees
             get
             {
                 List<string> specialInstructions = new List<string>();
+                if (!bun) specialInstructions.Add("Hold bun");
+                if (!ketchup) specialInstructions.Add("Hold ketchup");
+                if (!mustard) specialInstructions.Add("Hold mustard");
+                if (!pickle) specialInstructions.Add("Hold pickle");
+                if (!cheese) specialInstructions.Add("Hold cheese");
+                if (!tomato) specialInstructions.Add("Hold tomato");
+                if (!lettuce) specialInstructions.Add("Hold lettuce");
+                if (!mayo) specialInstructions.Add("Hold mayo");
                 if (!bacon) specialInstructions.Add("Hold bacon");
                 if (!egg) specialInstructions.Add("Hold egg");
 
@@ -163,7 +174,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns></returns>
         public override string ToString()
         {
-            return "Double Draugr";
+            return "Thalmor Triple";
         }
     }
 }

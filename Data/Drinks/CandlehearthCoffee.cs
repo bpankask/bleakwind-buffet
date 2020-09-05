@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class to represent the Candlehearth Coffee drink.
+    /// </summary>
     public class CandlehearthCoffee
     {
         private bool ice = false;
@@ -21,6 +24,9 @@ namespace BleakwindBuffet.Data.Drinks
 
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get, set ice.
+        /// </summary>
         public bool Ice
         {
             get => ice;
@@ -28,6 +34,9 @@ namespace BleakwindBuffet.Data.Drinks
             set => ice = value;
         }
 
+        /// <summary>
+        /// Get, set decaf.
+        /// </summary>
         public bool Decaf
         {
             get => decaf;
@@ -35,6 +44,9 @@ namespace BleakwindBuffet.Data.Drinks
             set => decaf = value;
         }
 
+        /// <summary>
+        /// Get, set roomForCream.
+        /// </summary>
         public bool RoomForCream
         {
             get => roomForCream;
@@ -42,6 +54,9 @@ namespace BleakwindBuffet.Data.Drinks
             set => roomForCream = value;
         }
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;
@@ -94,6 +109,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// List of special instructions on how to handle drink.
         /// </summary>
+        /// <return>List of instructions for drink</return>
         public List<string> SpecialInstructions
         {
             get
@@ -112,7 +128,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Overriden ToString method to return name and size of drink.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Name of drink</returns>
         public override string ToString()
         {
             switch (size)

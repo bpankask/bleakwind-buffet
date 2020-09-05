@@ -11,12 +11,18 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class to represent the Markarth Milk drink.
+    /// </summary>
     public class MarkarthMilk
     {
         private bool ice = false;
 
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get, set ice.
+        /// </summary>
         public bool Ice
         {
             get => ice;
@@ -24,6 +30,9 @@ namespace BleakwindBuffet.Data.Drinks
             set => ice = value;
         }
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;
@@ -76,6 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// List of special instructions on how to handle drink.
         /// </summary>
+        /// <return>List of instruction for drink</return>
         public List<string> SpecialInstructions
         {
             get
@@ -91,7 +101,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Overriden ToString method to return name and size of drink.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Name of drink</returns>
         public override string ToString()
         {
             switch (size)

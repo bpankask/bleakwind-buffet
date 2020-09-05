@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent the Philly Poacher entree.
+    /// </summary>
     public class PhillyPoacher
     {
         private bool sirloin = true;
@@ -67,11 +70,11 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 List<string> specialInstructions = new List<string>();
                 if (!sirloin) 
-                    specialInstructions.Add("Hold sirlion");
+                    specialInstructions.Add("Hold sirloin");
                 if (!onion) 
                     specialInstructions.Add("Hold onions");
                 if (!roll) 
-                    specialInstructions.Add("Hold hash roll");
+                    specialInstructions.Add("Hold roll");
 
                 return specialInstructions;
             }

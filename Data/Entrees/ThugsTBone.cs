@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent the Thugs T Bone entree.
+    /// </summary>
     public class ThugsTBone
     {
         /// <summary>

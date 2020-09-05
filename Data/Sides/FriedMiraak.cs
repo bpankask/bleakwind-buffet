@@ -11,10 +11,16 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Class to represent the Fried Miraak side.
+    /// </summary>
     public class FriedMiraak
     {
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Get, set size.
+        /// </summary>
         public Size Size
         {
             get => size;
