@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Brayden Pankaskie
+ * Author: Brayden Pankaskie / Brayden Pankaskie
  * Class: WarriorWaterTests.cs
  * Purpose: Test the WarriorWater.cs class in the Data library.
  */

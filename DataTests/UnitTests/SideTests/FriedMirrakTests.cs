@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Authors: Zachery Brunner/ Brayden Pankaskie
  * Class: FriedMiraakTests.cs
  * Purpose: Test the FriedMiraak.cs class in the Data library
  */

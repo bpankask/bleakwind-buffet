@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Zachery Brunner / Brayden Pankaskie
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
@@ -108,16 +108,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ss.Pancake = includePancake;
 
             if (!includeSausage) Assert.Contains("Hold sausage", ss.SpecialInstructions);
-            else Assert.Empty(ss.SpecialInstructions);
+            else Assert.DoesNotContain("Hold sausage", ss.SpecialInstructions);
 
             if (!includeEgg) Assert.Contains("Hold eggs", ss.SpecialInstructions);
-            else Assert.Empty(ss.SpecialInstructions);
+            else Assert.DoesNotContain("Hold eggs", ss.SpecialInstructions);
 
             if (!includeHashbrowns) Assert.Contains("Hold hash browns", ss.SpecialInstructions);
-            else Assert.Empty(ss.SpecialInstructions);
+            else Assert.DoesNotContain("Hold hash browns", ss.SpecialInstructions);
 
             if (!includePancake) Assert.Contains("Hold pancakes", ss.SpecialInstructions);
-            else Assert.Empty(ss.SpecialInstructions);
+            else Assert.DoesNotContain("Hold pancakes", ss.SpecialInstructions);
         }
 
         [Fact]
