@@ -13,12 +13,13 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Philly Poacher entree.
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree, IOrderItem
     {
+        /// <summary>
+        /// Private field declarations
+        /// </summary>
         private bool sirloin = true;
-
         private bool onion = true;
-
         private bool roll = true;
 
         /// <summary>
@@ -54,17 +55,17 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Access get Price field.
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <summary>
         /// Access to Calories field.
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         /// <summary>
         /// List of special instructions on how to handle entree.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

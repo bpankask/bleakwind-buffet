@@ -14,14 +14,14 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Class to represent the Mad Otar Grits side.
     /// </summary>
-    public class MadOtarGrits
+    public class MadOtarGrits : Side, IOrderItem
     {
         private Size size = Size.Small;
 
         /// <summary>
         /// Get or set size.
         /// </summary>
-        public Size Size
+        public override Size Size
         {
             get => size;
 
@@ -31,7 +31,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Access to Price of a side dish.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -52,7 +52,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Access to Calories of a side dish.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -74,7 +74,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Always an empty list for sides.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>();
         }

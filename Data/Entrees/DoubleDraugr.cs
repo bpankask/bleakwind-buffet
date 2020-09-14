@@ -13,22 +13,18 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Double Draugr entree.
     /// </summary>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree, IOrderItem
     {
+        /// <summary>
+        /// Private field declarations
+        /// </summary>
         private bool bun = true;
-
         private bool ketchup = true;
-
         private bool mustard = true;
-
         private bool pickle = true;
-
         private bool cheese = true;
-
         private bool tomato = true;
-
         private bool lettuce = true;
-
         private bool mayo = true;
 
         /// <summary>
@@ -114,17 +110,17 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Access to Price of entree
         /// </summary>
-        public double Price => 7.32;
+        public override double Price => 7.32;
 
         /// <summary>
         /// Access to Calories of entree
         /// </summary>
-        public uint Calories => 843;
+        public override uint Calories => 843;
 
         /// <summary>
         /// List of special instructions on how to handle entree.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

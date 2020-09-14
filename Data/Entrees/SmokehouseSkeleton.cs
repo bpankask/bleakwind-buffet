@@ -13,14 +13,14 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Smokehouse Skeleton entree.
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
+        /// <summary>
+        /// Private field declarations
+        /// </summary>
         private bool sausageLink = true;
-
         private bool egg = true;
-
         private bool hashBrowns = true;
-
         private bool pancake = true;
 
         /// <summary>
@@ -67,17 +67,17 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Access to Price of entree.
         /// </summary>
-        public double Price => 5.62;
+        public override double Price => 5.62;
 
         /// <summary>
         /// Access to Calories of entree.
         /// </summary>
-        public uint Calories => 602;
+        public override uint Calories => 602;
 
         /// <summary>
         /// List of special instructions on how to handle entree.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

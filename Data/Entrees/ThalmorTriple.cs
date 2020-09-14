@@ -13,26 +13,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Thalmor Triple entree.
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree, IOrderItem
     {
+        /// <summary>
+        /// Private field declarations
+        /// </summary>
         private bool bun = true;
-
         private bool ketchup = true;
-
         private bool mustard = true;
-
         private bool pickle = true;
-
         private bool cheese = true;
-
         private bool tomato = true;
-
         private bool lettuce = true;
-
         private bool mayo = true;
-
         private bool bacon = true;
-
         private bool egg = true;
 
         /// <summary>
@@ -138,17 +132,17 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Access to Price of entree
         /// </summary>
-        public double Price => 8.32;
+        public override double Price => 8.32;
 
         /// <summary>
         /// Access to Calories of entree
         /// </summary>
-        public uint Calories => 943;
+        public override uint Calories => 943;
 
         /// <summary>
         /// List of special instructions on how to handle entree.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
