@@ -96,6 +96,7 @@ namespace BleakwindBuffet.Data.Sides
 
                 default:
                     return "Small Dragonborn Waffle Fries";
+                    
             }
         }
     }
