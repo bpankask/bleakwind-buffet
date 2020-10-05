@@ -10,6 +10,10 @@
     <None Remove="Burger.png" />
     <None Remove="Drink.png" />
     <None Remove="Fries.png" />
+    <None Remove="Images\BriarheartBurger.png" />
+    <None Remove="Images\GardenO.png" />
+    <None Remove="Images\SmokehouseSkeleton.jpg" />
+    <None Remove="Images\ThugsTBone.png" />
     <None Remove="MainMenu.png" />
   </ItemGroup>
 
@@ -18,18 +22,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Burger.png">
+    <Resource Include="Images\BriarheartBurger.png" />
+    <Resource Include="Images\Burger.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Drink.png">
+    <Resource Include="Images\Drink.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Fries.png">
+    <Resource Include="Images\Fries.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="MainMenu.png">
+    <Resource Include="Images\GardenO.png" />
+    <Resource Include="Images\MainMenu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\SmokehouseSkeleton.jpg" />
+    <Resource Include="Images\ThugsTBone.png" />
   </ItemGroup>
 
 </Project>

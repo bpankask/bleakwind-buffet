@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Brayden Pankaskie
+ * Last Updated: 10/04/2020
+ * Purpose: Backend for XAML of same name
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

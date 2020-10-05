@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +14,13 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Smokehouse Skeleton entree.
     /// </summary>
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private field declarations
         /// </summary>
@@ -30,7 +36,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => sausageLink;
 
-            set => sausageLink = value;
+            set
+            {
+                sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+            }
             
         }
 
@@ -41,7 +51,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => egg;
 
-            set => egg = value;
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
         }
 
         /// <summary>
@@ -51,7 +65,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => hashBrowns;
 
-            set => hashBrowns = value;
+            set
+            {
+                hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+            }
         }
 
         /// <summary>
@@ -61,7 +79,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => pancake;
 
-            set => pancake = value;
+            set
+            {
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
         }
 
         /// <summary>

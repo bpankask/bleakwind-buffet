@@ -1,14 +1,17 @@
 ﻿/*
  * Author: Brayden Pankaskie
- * Class: ItemCustomization.xaml.cs
- * Purpose: Handles customization of order
+ * Last Updated: 10/04/2020
+ * Purpose: Backend for XAML of same name
+ * 
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,11 +29,6 @@ namespace PointOfSale
     {
         private string item;
 
-        public ItemCustomization()
-        {
-            InitializeComponent();
-        }
-
         public ItemCustomization(string item)
         {
             InitializeComponent();
@@ -47,7 +45,7 @@ namespace PointOfSale
                     break;
 
                 case "Briarheart Burger":
-                    PopulateCustomizationBriarheartBuger();
+                    PopulateCustomizationBriarheartBurger();
                     break;
 
                 case "Double Draugr":
@@ -112,130 +110,165 @@ namespace PointOfSale
             sizeBox.Visibility = Visibility.Visible;
         }
 
-        void PopulateCustomizationBriarheartBuger()
+        void PopulateCustomizationBriarheartBurger()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Bun";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Bun");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Ketchup";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Ketchup");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Mustard";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "Mustard");
 
             radioButton3.Visibility = Visibility.Visible;
             radioButton3.Content = "Pickle";
+            radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Pickle");
 
             radioButton4.Visibility = Visibility.Visible;
             radioButton4.Content = "Cheese";
+            radioButton4.SetBinding(ToggleButton.IsCheckedProperty, "Cheese");
         }
 
         void PopulateCustomizationDoubleDraugr()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Bun";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Bun");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Ketchup";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Ketchup");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Mustard";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "Mustard");
 
             radioButton3.Visibility = Visibility.Visible;
             radioButton3.Content = "Pickle";
+            radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Pickle");
 
             radioButton4.Visibility = Visibility.Visible;
             radioButton4.Content = "Cheese";
+            radioButton4.SetBinding(ToggleButton.IsCheckedProperty, "Cheese");
 
             radioButton5.Visibility = Visibility.Visible;
             radioButton5.Content = "Tomato";
+            radioButton5.SetBinding(ToggleButton.IsCheckedProperty, "Tomato");
 
             radioButton6.Visibility = Visibility.Visible;
             radioButton6.Content = "Lettuce";
+            radioButton6.SetBinding(ToggleButton.IsCheckedProperty, "Lettuce");
 
             radioButton7.Visibility = Visibility.Visible;
             radioButton7.Content = "Mayo";
+            radioButton7.SetBinding(ToggleButton.IsCheckedProperty, "Mayo");
         }
 
         void PopulateCustomizationThalmorTriple()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Bun";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Bun");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Ketchup";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Ketchup");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Mustard";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "Mustard");
 
             radioButton3.Visibility = Visibility.Visible;
             radioButton3.Content = "Pickle";
+            radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Pickle");
 
             radioButton4.Visibility = Visibility.Visible;
             radioButton4.Content = "Cheese";
+            radioButton4.SetBinding(ToggleButton.IsCheckedProperty, "Cheese");
 
             radioButton5.Visibility = Visibility.Visible;
             radioButton5.Content = "Tomato";
+            radioButton5.SetBinding(ToggleButton.IsCheckedProperty, "Tomato");
 
             radioButton6.Visibility = Visibility.Visible;
             radioButton6.Content = "Lettuce";
+            radioButton6.SetBinding(ToggleButton.IsCheckedProperty, "Lettuce");
 
             radioButton7.Visibility = Visibility.Visible;
             radioButton7.Content = "Mayo";
+            radioButton7.SetBinding(ToggleButton.IsCheckedProperty, "Mayo");
 
             radioButton8.Visibility = Visibility.Visible;
             radioButton8.Content = "Bacon";
+            radioButton8.SetBinding(ToggleButton.IsCheckedProperty, "Bacon");
 
             radioButton9.Visibility = Visibility.Visible;
             radioButton9.Content = "Egg";
+            radioButton9.SetBinding(ToggleButton.IsCheckedProperty, "Egg");
         }
 
         void PopulateCustomizationGardenOrcOmelette()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Broccoli";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Broccoli");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Mushrooms";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Mushrooms");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Tomato";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "Tomato");
 
             radioButton3.Visibility = Visibility.Visible;
             radioButton3.Content = "Cheddar";
+            radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Cheddar");
         }
 
         void PopulateCustomizationPhillyPoacher()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Sirloin";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Sirloin");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Onion";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Onion");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Roll";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "Roll");
         }
 
         void PopulateCustomizationSmokeSkeleton()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Sausage Link";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "SausageLink");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Egg";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Egg");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Hash Browns";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "HashBrowns");
 
             radioButton3.Visibility = Visibility.Visible;
             radioButton3.Content = "Pancake";
+            radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Pancake");
         }
 
         void PopulateCustomizationSailorSoda()
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Ice";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Ice");
 
             sizeBox.Visibility = Visibility.Visible;
             flavorBox.Visibility = Visibility.Visible;
@@ -245,6 +278,7 @@ namespace PointOfSale
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Ice";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Ice");
 
             sizeBox.Visibility = Visibility.Visible;
         }
@@ -253,6 +287,7 @@ namespace PointOfSale
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Ice";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Ice");
 
             sizeBox.Visibility = Visibility.Visible;
         }
@@ -261,12 +296,15 @@ namespace PointOfSale
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Ice";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Ice");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Decaf";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Decaf");
 
             radioButton2.Visibility = Visibility.Visible;
             radioButton2.Content = "Room For Cream";
+            radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "RoomForCream");
 
             sizeBox.Visibility = Visibility.Visible;
         }
@@ -275,9 +313,11 @@ namespace PointOfSale
         {
             radioButton0.Visibility = Visibility.Visible;
             radioButton0.Content = "Ice";
+            radioButton0.SetBinding(ToggleButton.IsCheckedProperty, "Ice");
 
             radioButton1.Visibility = Visibility.Visible;
             radioButton1.Content = "Lemon";
+            radioButton1.SetBinding(ToggleButton.IsCheckedProperty, "Lemon");
 
             sizeBox.Visibility = Visibility.Visible;
         }

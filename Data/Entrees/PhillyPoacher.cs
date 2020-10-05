@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +14,13 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Philly Poacher entree.
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private field declarations
         /// </summary>
@@ -29,7 +35,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => sirloin;
 
-            set => sirloin = value;
+            set
+            {
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
         }
 
         /// <summary>
@@ -39,7 +49,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => onion;
 
-            set => onion = value;
+            set
+            {
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+            }
         }
 
         /// <summary>
@@ -49,7 +63,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => roll;
 
-            set => roll = value;
+            set
+            {
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
         }
 
         /// <summary>

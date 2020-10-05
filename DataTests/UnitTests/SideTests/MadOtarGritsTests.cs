@@ -7,11 +7,82 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var mg = new MadOtarGrits();
+
+            Assert.PropertyChanged(mg, "Size", () =>
+            {
+                mg.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(mg, "Size", () =>
+            {
+                mg.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mg, "Size", () =>
+            {
+                mg.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var mg = new MadOtarGrits();
+
+            Assert.PropertyChanged(mg, "Price", () =>
+            {
+                mg.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(mg, "Price", () =>
+            {
+                mg.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mg, "Price", () =>
+            {
+                mg.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var mg = new MadOtarGrits();
+
+            Assert.PropertyChanged(mg, "Calories", () =>
+            {
+                mg.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(mg, "Calories", () =>
+            {
+                mg.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mg, "Calories", () =>
+            {
+                mg.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ShouldBeAnINotifyPropertyChanged()
+        {
+            MadOtarGrits mg = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mg);
+        }
+
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

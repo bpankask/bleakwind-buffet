@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,10 +15,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class to represent the Markarth Milk drink.
     /// </summary>
-    public class MarkarthMilk : Drink, IOrderItem
+    public class MarkarthMilk : Drink, IOrderItem, INotifyPropertyChanged
     {
-        private bool ice = false;
+        /// <summary>
+        /// Event for changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Private backing variables
+        /// </summary>
+        private bool ice = false;
         private Size size = Size.Small;
 
         /// <summary>
@@ -27,7 +35,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => ice;
 
-            set => ice = value;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>
@@ -37,7 +49,13 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => size;
 
-            set => size = value;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
         
 

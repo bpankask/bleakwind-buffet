@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="400">
     
-    <StackPanel Name="OrderSummery" Background="Black">
+    <StackPanel Name="OrderSummery" Background="Gray">
         
     </StackPanel>
 </UserControl>

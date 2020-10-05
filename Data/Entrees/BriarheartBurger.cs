@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +14,13 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent the Briarheart Burger entree.
     /// </summary>
-    public class BriarheartBurger : Entree, IOrderItem
+    public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private field declarations
         /// </summary>
@@ -31,7 +37,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => bun;
 
-            set => bun = value;
+            set
+            {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
         }
 
         /// <summary>
@@ -41,7 +51,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => ketchup;
 
-            set => ketchup = value;
+            set
+            {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
         }
 
         /// <summary>
@@ -51,7 +65,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => mustard;
 
-            set => mustard = value;
+            set
+            {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
         }
 
         /// <summary>
@@ -61,7 +79,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => pickle;
 
-            set => pickle = value;
+            set
+            {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
         }
 
         /// <summary>
@@ -71,7 +93,11 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => cheese;
 
-            set => cheese = value;
+            set
+            {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
         }
 
         /// <summary>

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,12 +15,18 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class to represent the Sailor Soda drink.
     /// </summary>
-    public class SailorSoda : Drink, IOrderItem
+    public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Private backing variables
+        /// </summary>
         private bool ice = true;
-
         private Size size = Size.Small;
-
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
         /// <summary>
@@ -29,7 +36,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => ice;
 
-            set => ice = value;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>
@@ -39,7 +50,13 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => size;
 
-            set => size = value;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <summary>
@@ -49,7 +66,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => flavor;
 
-            set => flavor = value;
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+            }
         }
 
         /// <summary>

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,14 +15,19 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class to represent the Candlehearth Coffee drink.
     /// </summary>
-    public class CandlehearthCoffee : Drink, IOrderItem
+    public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Private backing variables
+        /// </summary>
         private bool ice = false;
-
         private bool decaf = false;
-
         private bool roomForCream = false;
-
         private Size size = Size.Small;
 
         /// <summary>
@@ -31,7 +37,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => ice;
 
-            set => ice = value;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>
@@ -41,7 +51,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => decaf;
 
-            set => decaf = value;
+            set
+            {
+                decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+            }
         }
 
         /// <summary>
@@ -51,7 +65,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => roomForCream;
 
-            set => roomForCream = value;
+            set
+            {
+                roomForCream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+            }
         }
 
         /// <summary>
@@ -61,7 +79,13 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => size;
 
-            set => size = value;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <summary>

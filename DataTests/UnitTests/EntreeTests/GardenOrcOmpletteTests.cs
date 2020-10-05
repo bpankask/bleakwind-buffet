@@ -7,11 +7,83 @@ using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
 using NuGet.Frameworks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class GardenOrcOmeletteTests
     {
+        [Fact]
+        public void ChangingBroccoliNotifiesBroccoliProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Broccoli", () =>
+            {
+                go.Broccoli = false;
+            });
+
+            Assert.PropertyChanged(go, "Broccoli", () =>
+            {
+                go.Broccoli = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMushroomsNotifiesMushroomsProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Mushrooms", () =>
+            {
+                go.Mushrooms = false;
+            });
+
+            Assert.PropertyChanged(go, "Mushrooms", () =>
+            {
+                go.Mushrooms = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Tomato", () =>
+            {
+                go.Tomato = false;
+            });
+
+            Assert.PropertyChanged(go, "Tomato", () =>
+            {
+                go.Tomato = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheddarNotifiesCheddarProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Cheddar", () =>
+            {
+                go.Cheddar = false;
+            });
+
+            Assert.PropertyChanged(go, "Cheddar", () =>
+            {
+                go.Cheddar = true;
+            });
+        }
+
+        [Fact]
+        public void ShouldBeAnINotifyPropertyChanged()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(go);
+        }
+
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

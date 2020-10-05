@@ -7,11 +7,82 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class DragonbornWaffleFriesTests
     {
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var df = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(df, "Size", () =>
+            {
+                df.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(df, "Size", () =>
+            {
+                df.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(df, "Size", () =>
+            {
+                df.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var df = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(df, "Price", () =>
+            {
+                df.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(df, "Price", () =>
+            {
+                df.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(df, "Price", () =>
+            {
+                df.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var df = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(df, "Calories", () =>
+            {
+                df.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(df, "Calories", () =>
+            {
+                df.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(df, "Calories", () =>
+            {
+                df.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ShouldBeAnINotifyPropertyChanged()
+        {
+            DragonbornWaffleFries df = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(df);
+        }
+
         [Fact]
         public void ShouldBeAnIOrderItem()
         {
