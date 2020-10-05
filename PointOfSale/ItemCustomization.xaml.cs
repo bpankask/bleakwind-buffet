@@ -29,6 +29,10 @@ namespace PointOfSale
     {
         private string item;
 
+        /// <summary>
+        /// Overriden constructor
+        /// </summary>
+        /// <param name="item"></param>
         public ItemCustomization(string item)
         {
             InitializeComponent();
@@ -36,6 +40,9 @@ namespace PointOfSale
             DetermineHowToPopulate();
         }
 
+        /// <summary>
+        /// Determines what customization information appears on screen
+        /// </summary>
         void DetermineHowToPopulate()
         {
             switch (item)
@@ -105,11 +112,17 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Populates all information to customize item
+        /// </summary>
         void PopulateCustomizationSides()
         {
             sizeBox.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationBriarheartBurger()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -133,6 +146,9 @@ namespace PointOfSale
             radioButton4.SetBinding(ToggleButton.IsCheckedProperty, "Cheese");
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationDoubleDraugr()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -168,6 +184,9 @@ namespace PointOfSale
             radioButton7.SetBinding(ToggleButton.IsCheckedProperty, "Mayo");
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationThalmorTriple()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -211,6 +230,9 @@ namespace PointOfSale
             radioButton9.SetBinding(ToggleButton.IsCheckedProperty, "Egg");
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationGardenOrcOmelette()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -230,6 +252,9 @@ namespace PointOfSale
             radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Cheddar");
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationPhillyPoacher()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -245,6 +270,9 @@ namespace PointOfSale
             radioButton2.SetBinding(ToggleButton.IsCheckedProperty, "Roll");
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationSmokeSkeleton()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -264,6 +292,9 @@ namespace PointOfSale
             radioButton3.SetBinding(ToggleButton.IsCheckedProperty, "Pancake");
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationSailorSoda()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -274,6 +305,9 @@ namespace PointOfSale
             flavorBox.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationMarkarthMilk()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -283,6 +317,9 @@ namespace PointOfSale
             sizeBox.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationAppleJuice()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -292,6 +329,9 @@ namespace PointOfSale
             sizeBox.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationCandlehearthCoffey()
         {
             radioButton0.Visibility = Visibility.Visible;
@@ -309,6 +349,9 @@ namespace PointOfSale
             sizeBox.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Populates all informations to customize item
+        /// </summary>
         void PopulateCustomizationWarriorWater()
         {
             radioButton0.Visibility = Visibility.Visible;
