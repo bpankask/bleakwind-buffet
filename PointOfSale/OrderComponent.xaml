@@ -6,8 +6,40 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="400">
-    
-    <StackPanel Name="OrderSummery" Background="Gray">
+    <Grid Name="OrderSummery">
+        <WrapPanel  HorizontalAlignment="Center">
+            <TextBlock FontSize="15" >Order #</TextBlock>
+            <TextBlock FontSize="15" Text="{Binding Path=Number}"/>
+        </WrapPanel>
+        <ListView Name="listView" ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <DockPanel>
+                            <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding}" DockPanel.Dock="Left"/>
+                            <TextBlock FontSize="15" FontWeight="Bold" Text="       $"/>
+                            <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=Price}" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <ListBox ItemsSource="{Binding Path=SpecialInstructions}"/>
+                     </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel VerticalAlignment="Bottom">
+            <Button Name="removeItem" Click="OnRemoveClick" Margin="3" BorderThickness="3">Remove Selected Item From Order</Button>
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBlock>Subtotal: $</TextBlock>
+                <TextBlock Text="{Binding Path=Subtotal}"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBlock>Tax: $</TextBlock>
+                <TextBlock Text="{Binding Path=Tax}"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBlock>Total: $</TextBlock>
+                <TextBlock Text="{Binding Path=Total}"/>
+            </WrapPanel>
+        </StackPanel>
         
-    </StackPanel>
+    </Grid>
 </UserControl>

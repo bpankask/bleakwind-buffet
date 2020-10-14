@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale
 {
@@ -25,9 +26,12 @@ namespace PointOfSale
     /// </summary>
     public partial class StartWindow : UserControl
     {
-        public StartWindow()
+        private Order order;
+
+        public StartWindow(Order order)
         {
             InitializeComponent();
+            this.order = order;
         }
 
         /// <summary>
@@ -40,7 +44,7 @@ namespace PointOfSale
             entreesButton.Visibility = Visibility.Hidden;
             sidesButton.Visibility = Visibility.Hidden;
             drinksButton.Visibility = Visibility.Hidden;
-            menuComponentPlace.Child = new EntreeMenu();
+            menuComponentPlace.Child = new EntreeMenu(order);
         }
 
         /// <summary>
@@ -53,7 +57,7 @@ namespace PointOfSale
             entreesButton.Visibility = Visibility.Hidden;
             sidesButton.Visibility = Visibility.Hidden;
             drinksButton.Visibility = Visibility.Hidden;
-            menuComponentPlace.Child = new SideMenu();
+            menuComponentPlace.Child = new SideMenu(order);
         }
 
         /// <summary>
@@ -66,7 +70,7 @@ namespace PointOfSale
             entreesButton.Visibility = Visibility.Hidden;
             sidesButton.Visibility = Visibility.Hidden;
             drinksButton.Visibility = Visibility.Hidden;
-            menuComponentPlace.Child = new DrinkMenu();
+            menuComponentPlace.Child = new DrinkMenu(order);
         }
 
         /// <summary>
@@ -76,7 +80,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void BackButton(object sender, RoutedEventArgs e)
         {
-            menuComponentPlace.Child = new StartWindow();
+            menuComponentPlace.Child = new StartWindow(order);
             entreesButton.Visibility = Visibility.Visible;
             sidesButton.Visibility = Visibility.Visible;
             drinksButton.Visibility = Visibility.Visible;

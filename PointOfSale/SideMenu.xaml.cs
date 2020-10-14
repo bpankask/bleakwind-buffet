@@ -28,10 +28,13 @@ namespace PointOfSale
     /// </summary>
     public partial class SideMenu : UserControl
     {
-        public SideMenu()
+        private Order order;
+
+        public SideMenu(Order order)
         {
             InitializeComponent();
             PopulateSidesMenu();
+            this.order = order;
         }
 
         /// <summary>
@@ -54,10 +57,30 @@ namespace PointOfSale
         {
             if (sender is Button button)
             {
-                if (button == button0) this.DataContext = new VokunSalad();
-                if (button == button1) this.DataContext = new FriedMiraak();
-                if (button == button2) this.DataContext = new MadOtarGrits();
-                if (button == button3) this.DataContext = new DragonbornWaffleFries();
+                if (button == button0)
+                {
+                    VokunSalad vs = new VokunSalad();
+                    this.DataContext = vs;
+                    order.Add(vs);
+                }
+                if (button == button1)
+                {
+                    FriedMiraak fm = new FriedMiraak();
+                    this.DataContext = fm;
+                    order.Add(fm);
+                }
+                if (button == button2)
+                {
+                    MadOtarGrits mg = new MadOtarGrits();
+                    this.DataContext = mg;
+                    order.Add(mg);
+                }
+                if (button == button3)
+                {
+                    DragonbornWaffleFries df = new DragonbornWaffleFries();
+                    this.DataContext = df;
+                    order.Add(df);
+                }
 
                 customizeWindow.Child = new ItemCustomization(button.Content.ToString());
             }

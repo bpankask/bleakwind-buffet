@@ -5,6 +5,7 @@
  * 
  */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +28,13 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Order order = new Order();
+
         public MainWindow()
         {
             InitializeComponent();
-            menuComponentPlace.Child = new StartWindow();
-            orderComponentPlace.Child = new OrderComponent();
+            menuComponentPlace.Child = new StartWindow(order);
+            orderComponentPlace.Child = new OrderComponent(order);
         }
     }
 }

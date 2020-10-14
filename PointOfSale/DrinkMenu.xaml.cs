@@ -5,9 +5,11 @@
  * 
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,10 +28,13 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkMenu : UserControl
     {
-        public DrinkMenu()
+        private Order order;
+
+        public DrinkMenu(Order order)
         {
             InitializeComponent();
             PopulateDrinksMenu();
+            this.order = order;
         }
 
         /// <summary>
@@ -53,11 +58,36 @@ namespace PointOfSale
         {
             if (sender is Button button)
             {
-                if (button == button0) this.DataContext = new SailorSoda();
-                if (button == button1) this.DataContext = new MarkarthMilk();
-                if (button == button2) this.DataContext = new AretinoAppleJuice();
-                if (button == button3) this.DataContext = new CandlehearthCoffee();
-                if (button == button4) this.DataContext = new WarriorWater();
+                if (button == button0)
+                {
+                    SailorSoda ss = new SailorSoda();
+                    this.DataContext = ss;
+                    order.Add(ss);
+                }
+                if (button == button1) 
+                { 
+                    MarkarthMilk mm = new MarkarthMilk();
+                    this.DataContext = mm;
+                    order.Add(mm);
+                }
+                if (button == button2)
+                {
+                    AretinoAppleJuice aj = new AretinoAppleJuice();
+                    this.DataContext = aj;
+                    order.Add(aj);
+                }
+                if (button == button3)
+                {
+                    CandlehearthCoffee cc = new CandlehearthCoffee();
+                    this.DataContext = cc;
+                    order.Add(cc);
+                }
+                if (button == button4)
+                {
+                    WarriorWater ww = new WarriorWater();
+                    this.DataContext = ww;
+                    order.Add(ww);
+                }
 
                 customizeWindow.Child = new ItemCustomization(button.Content.ToString());
             }

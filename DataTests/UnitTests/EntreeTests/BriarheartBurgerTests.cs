@@ -93,6 +93,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingItemNotifiesSpecialInstructions()
+        {
+            var bb = new BriarheartBurger();
+
+            Assert.PropertyChanged(bb, "SpecialInstructions", () =>
+            {
+                bb.Bun = false;
+            });
+
+            Assert.PropertyChanged(bb, "SpecialInstructions", () =>
+            {
+                bb.Bun = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnINotifyPropertyChanged()
         {
             BriarheartBurger bb = new BriarheartBurger();

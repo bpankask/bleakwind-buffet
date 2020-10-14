@@ -5,6 +5,7 @@
  * 
  */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,9 +26,20 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderComponent : UserControl
     {
-        public OrderComponent()
+        private Order order;
+
+        public OrderComponent(Order order)
         {
             InitializeComponent();
+            this.order = order;
+            DataContext = order;
         }
+
+        public void OnRemoveClick(object sender, RoutedEventArgs e)
+        {
+            IOrderItem item = listView.SelectedItem as IOrderItem;
+            order.Remove(item);
+        }
+
     }
 }

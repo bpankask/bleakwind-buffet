@@ -5,6 +5,7 @@
  * 
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,13 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeMenu : UserControl
     {
-        public EntreeMenu()
+        private Order order;
+
+        public EntreeMenu(Order order)
         {
             InitializeComponent();
             PopulateEntreeMenu();
+            this.order = order;
         }
 
         /// <summary>
@@ -56,13 +60,48 @@ namespace PointOfSale
         {
             if(sender is Button button)
             {
-                if (button == button0) this.DataContext = new BriarheartBurger();
-                if (button == button1) this.DataContext = new DoubleDraugr();
-                if (button == button2) this.DataContext = new ThalmorTriple();
-                if (button == button3) this.DataContext = new SmokehouseSkeleton();
-                if (button == button4) this.DataContext = new GardenOrcOmelette();
-                if (button == button5) this.DataContext = new PhillyPoacher();
-                if (button == button6) this.DataContext = new ThugsTBone();
+                if (button == button0)
+                {
+                    BriarheartBurger bb = new BriarheartBurger();
+                    this.DataContext = bb;
+                    order.Add(bb);
+                }
+                if (button == button1)
+                {
+                    DoubleDraugr dd = new DoubleDraugr();
+                    this.DataContext = dd;
+                    order.Add(dd);
+                }
+                if (button == button2)
+                {
+                    ThalmorTriple tt = new ThalmorTriple();
+                    this.DataContext = tt;
+                    order.Add(tt);
+                }
+                if (button == button3)
+                {
+                    SmokehouseSkeleton ss = new SmokehouseSkeleton();
+                    this.DataContext = ss;
+                    order.Add(ss);
+                }
+                if (button == button4)
+                {
+                    GardenOrcOmelette go = new GardenOrcOmelette();
+                    this.DataContext = go;
+                    order.Add(go);
+                }
+                if (button == button5)
+                {
+                    PhillyPoacher pp = new PhillyPoacher();
+                    this.DataContext = pp;
+                    order.Add(pp);
+                }
+                if (button == button6)
+                {
+                    ThugsTBone tt = new ThugsTBone();
+                    this.DataContext = tt;
+                    order.Add(tt);
+                }
 
                 customizeWindow.Child = new ItemCustomization(button.Content.ToString());
             }
