@@ -86,5 +86,12 @@ namespace PointOfSale
             drinksButton.Visibility = Visibility.Visible;
         }
 
+        void Payment(object sender, RoutedEventArgs e)
+        {
+            menuComponentPlace.Child = new PaymentType(order);
+            entreesButton.Visibility = Visibility.Hidden;
+            sidesButton.Visibility = Visibility.Hidden;
+            drinksButton.Visibility = Visibility.Hidden;
+        }
     }
 }

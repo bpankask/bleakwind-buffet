@@ -28,11 +28,27 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Order order = new Order();
+
+        public StartWindow startWindow = null;
+        public OrderComponent orderComponent = null;
 
         public MainWindow()
         {
             InitializeComponent();
+            Order order = new Order();
+            StartWindow sw = new StartWindow(order);
+            OrderComponent oc = new OrderComponent(order);
+
+            startWindow = sw;
+            orderComponent = oc;
+
+            menuComponentPlace.Child = sw;
+            orderComponentPlace.Child = oc;
+        }
+
+        public void CancelOrder()
+        {
+            Order order = new Order();
             menuComponentPlace.Child = new StartWindow(order);
             orderComponentPlace.Child = new OrderComponent(order);
         }

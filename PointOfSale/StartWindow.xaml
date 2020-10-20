@@ -65,7 +65,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Name="backButton" Background="Beige" FontWeight="Bold" Click="BackButton" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" 
-                FontSize="20" VerticalAlignment="Center" Height="70" Width="85">
+                FontSize="20" VerticalAlignment="Center" Height="60" Width="80">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -74,14 +74,14 @@
                     Back
                 </Button>
 
-                <Button Name="finishButton" Background="Beige" FontWeight="Bold" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" 
-                FontSize="20" VerticalAlignment="Center" Height="70" Width="85">
+                <Button Name="paymentButton" Click="Payment" Background="Beige" FontWeight="Bold" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" 
+                FontSize="20" VerticalAlignment="Center" Height="60" Width="150">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
-                    Finish
+                    Payment
                 </Button>
             </Grid>
         </Border>

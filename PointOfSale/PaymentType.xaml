@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="PointOfSale.PaymentType"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="750">
+
+    <Border Name="paymentBorder">
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="40"/>
+                    <Setter Property="Foreground" Value="Beige"/>
+                </Style>
+            </Grid.Resources>
+    
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="cardButton" Click="OnCardTransactionClick">
+                Dredit/Debit Card
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/CreditCard.jpg" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+
+            <Button Name="cashButton" Click="OnCashButtonClick" Grid.Column="1" >
+                Cash
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/Cash.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

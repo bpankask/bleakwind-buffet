@@ -11,6 +11,8 @@
     <None Remove="Drink.png" />
     <None Remove="Fries.png" />
     <None Remove="Images\BriarheartBurger.png" />
+    <None Remove="Images\Cash.png" />
+    <None Remove="Images\CreditCard.jpg" />
     <None Remove="Images\GardenO.png" />
     <None Remove="Images\SmokehouseSkeleton.jpg" />
     <None Remove="Images\ThugsTBone.png" />
@@ -22,8 +24,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\BriarheartBurger.png" />
     <Resource Include="Images\Burger.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CreditCard.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Drink.png">

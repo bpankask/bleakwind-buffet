@@ -44,11 +44,17 @@ namespace BleakwindBuffet.Data
             {
                 if(entree != value)
                 {
-                    entree = value;
+                    if(entree != value)
+                    {
+                        
+                        entree = value;
+                        PropertyChanged += PropertyChangeEventListener;
+                    }
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
                 }
             }
         }
@@ -67,6 +73,7 @@ namespace BleakwindBuffet.Data
                 if (side != value)
                 {
                     side = value;
+                    PropertyChanged += PropertyChangeEventListener;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
@@ -89,6 +96,7 @@ namespace BleakwindBuffet.Data
                 if (drink != value)
                 {
                     drink = value;
+                    PropertyChanged += PropertyChangeEventListener;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
@@ -145,6 +153,29 @@ namespace BleakwindBuffet.Data
                 foreach (string str in drink.SpecialInstructions) list.Add(str);
 
                 return list;
+            }
+        }
+
+        /// <summary>
+        /// Listens for change in property of an IOrderItem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void PropertyChangeEventListener(object sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "Price")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+
+            if (e.PropertyName == "Calories")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+
+            if (e.PropertyName == "SpecialInstructions")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
     }

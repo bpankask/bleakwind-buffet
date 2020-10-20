@@ -19,12 +19,66 @@ namespace BleakwindBuffet.Data
         private uint nextOrderNumber = 1;
 
         /// <summary>
+        /// Records payment type for reciept
+        /// </summary>
+        public String PaymentType { get; set; }
+
+        /// <summary>
+        /// Records the total change owed customer
+        /// </summary>
+        public double ChangeOwed { get; set; }
+
+        /// <summary>
         /// Constructor for Order class
         /// </summary>
         public Order()
         {
             Number = nextOrderNumber;
             nextOrderNumber++;
+            CollectionChanged += CollectionChangedEventListener;
+        }
+
+        void CollectionChangedEventListener(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    foreach (IOrderItem item in e.NewItems)
+                    {
+                        item.PropertyChanged += CollectionItemChangedListener;
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Remove:
+                    foreach (IOrderItem item in e.OldItems)
+                    {
+                        item.PropertyChanged -= CollectionItemChangedListener;
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Reset:
+                    throw new NotImplementedException("NotifyCollectionChangedAction.Reset not supported");
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CollectionItemChangedListener(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Size")
+            {
+                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         public uint Number { get; set; }
@@ -45,7 +99,7 @@ namespace BleakwindBuffet.Data
 
                 foreach(IOrderItem item in this.Items) subtotal += item.Price;
 
-                return subtotal;
+                return Math.Round(subtotal, 2);
             }
         }
 
@@ -56,7 +110,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                return Subtotal * SalesTaxRate;
+                return Math.Round(Subtotal * SalesTaxRate, 2);
             }
         }
 
@@ -67,7 +121,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                return Subtotal + Tax;
+                return Math.Round(Subtotal + Tax, 2);
             }
         }
 

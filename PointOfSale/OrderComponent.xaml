@@ -6,12 +6,14 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="400">
-    <Grid Name="OrderSummery">
-        <WrapPanel  HorizontalAlignment="Center">
-            <TextBlock FontSize="15" >Order #</TextBlock>
-            <TextBlock FontSize="15" Text="{Binding Path=Number}"/>
+    <StackPanel Name="OrderSummery" Background="Gray">
+
+        <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock FontSize="20" >Order #</TextBlock>
+            <TextBlock FontSize="20" Text="{Binding Path=Number}"/>
         </WrapPanel>
-        <ListView Name="listView" ItemsSource="{Binding}">
+
+        <ListView Name="listView" ItemsSource="{Binding}" Foreground="Beige" Background="Gray">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -20,26 +22,37 @@
                             <TextBlock FontSize="15" FontWeight="Bold" Text="       $"/>
                             <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=Price}" DockPanel.Dock="Right"/>
                         </DockPanel>
-                        <ListBox ItemsSource="{Binding Path=SpecialInstructions}"/>
+                        <ListBox Background="Gray" Foreground="Beige" BorderThickness="0" ItemsSource="{Binding Path=SpecialInstructions}"/>
                      </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
         <StackPanel VerticalAlignment="Bottom">
-            <Button Name="removeItem" Click="OnRemoveClick" Margin="3" BorderThickness="3">Remove Selected Item From Order</Button>
+            <Button Background="Beige" FontWeight="Bold" FontSize="14" Name="removeItem" Click="OnRemoveClick" Margin="4" >Remove Selected Item From Order</Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Button.Click="OnCancelOrderClick" Background="Beige" FontWeight="Bold" FontSize="14" 
+                        Margin="10" >Cancel Order</Button>
+                <Button Click="OnFinalizeClick" Name="finalizeButton" IsEnabled="False" Grid.Column="1" Background="Beige" FontWeight="Bold" 
+                        FontSize="14" Margin="10" >Finalize Sale</Button>
+            </Grid>
             <WrapPanel HorizontalAlignment="Center">
-                <TextBlock>Subtotal: $</TextBlock>
-                <TextBlock Text="{Binding Path=Subtotal}"/>
+                <TextBlock FontSize="14" Foreground="Beige">Subtotal: $</TextBlock>
+                <TextBlock FontSize="14" Foreground="Beige" Text="{Binding Path=Subtotal}"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center">
-                <TextBlock>Tax: $</TextBlock>
-                <TextBlock Text="{Binding Path=Tax}"/>
+                <TextBlock FontSize="14" Foreground="Beige">Tax: $</TextBlock>
+                <TextBlock FontSize="14" Foreground="Beige" Text="{Binding Path=Tax}"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center">
-                <TextBlock>Total: $</TextBlock>
-                <TextBlock Text="{Binding Path=Total}"/>
+                <TextBlock FontSize="14" Foreground="Beige">Total: $</TextBlock>
+                <TextBlock FontSize="14" Foreground="Beige" Text="{Binding Path=Total}"/>
             </WrapPanel>
         </StackPanel>
         
-    </Grid>
+    </StackPanel>
 </UserControl>
