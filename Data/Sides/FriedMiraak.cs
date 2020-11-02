@@ -23,6 +23,23 @@ namespace BleakwindBuffet.Data.Sides
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Hold name of item for binding 
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
+            }
+
+            set
+            {
+                Name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        /// <summary>
         /// Private backing variable
         /// </summary>
         private Size size = Size.Small;
@@ -40,6 +57,7 @@ namespace BleakwindBuffet.Data.Sides
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 

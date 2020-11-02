@@ -30,6 +30,23 @@ namespace BleakwindBuffet.Data.Entrees
         private bool pancake = true;
 
         /// <summary>
+        /// Hold name of item for binding 
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
+            }
+
+            set
+            {
+                Name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        /// <summary>
         /// Access to sausageLink field.
         /// </summary>
         public bool SausageLink 

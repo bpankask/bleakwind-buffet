@@ -17,6 +17,16 @@ namespace BleakwindBuffet.Data
         /// Private backing variable for unique order number
         /// </summary>
         private uint nextOrderNumber = 1;
+        private bool isCombo = false;
+
+        public bool IsCombo
+        {
+            get { return isCombo; }
+            set
+            {
+                isCombo = value;
+            }
+        }
 
         /// <summary>
         /// Records payment type for reciept

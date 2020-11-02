@@ -23,6 +23,23 @@ namespace BleakwindBuffet.Data.Drinks
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Hold name of item for binding 
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
+            }
+
+            set
+            {
+                Name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        /// <summary>
         /// Private backing variables
         /// </summary>
         private bool ice = false;
@@ -56,6 +73,7 @@ namespace BleakwindBuffet.Data.Drinks
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
         

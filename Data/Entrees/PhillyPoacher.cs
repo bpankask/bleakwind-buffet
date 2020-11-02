@@ -29,6 +29,23 @@ namespace BleakwindBuffet.Data.Entrees
         private bool roll = true;
 
         /// <summary>
+        /// Hold name of item for binding 
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
+            }
+
+            set
+            {
+                Name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        /// <summary>
         /// Access get or set sirloin field.
         /// </summary>
         public bool Sirloin

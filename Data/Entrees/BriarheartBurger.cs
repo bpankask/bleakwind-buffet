@@ -31,6 +31,23 @@ namespace BleakwindBuffet.Data.Entrees
         private bool cheese = true;
 
         /// <summary>
+        /// Hold name of item for binding 
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
+            }
+
+            set
+            {
+                Name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        /// <summary>
         /// Access to bun field.
         /// </summary>
         public bool Bun

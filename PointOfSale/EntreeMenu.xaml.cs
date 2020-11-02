@@ -28,12 +28,14 @@ namespace PointOfSale
     public partial class EntreeMenu : UserControl
     {
         private Order order;
+        private Combo combo;
 
-        public EntreeMenu(Order order)
+        public EntreeMenu(Order order, Combo combo)
         {
             InitializeComponent();
             PopulateEntreeMenu();
             this.order = order;
+            this.combo = combo;
         }
 
         /// <summary>
@@ -51,6 +53,21 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Determines how to add item to order
+        /// </summary>
+        private void AddToOrder(IOrderItem item)
+        {
+            if(order.IsCombo == true)
+            {
+                combo.Entree = item as Entree;
+            }
+            else
+            {
+                order.Add(item);
+            }
+        }
+
+        /// <summary>
         /// Click event to set up screen and send information to populate special instructions menu.
         /// Also sets up data context for databind.
         /// </summary>
@@ -64,43 +81,43 @@ namespace PointOfSale
                 {
                     BriarheartBurger bb = new BriarheartBurger();
                     this.DataContext = bb;
-                    order.Add(bb);
+                    AddToOrder(bb);
                 }
                 if (button == button1)
                 {
                     DoubleDraugr dd = new DoubleDraugr();
                     this.DataContext = dd;
-                    order.Add(dd);
+                    AddToOrder(dd);
                 }
                 if (button == button2)
                 {
                     ThalmorTriple tt = new ThalmorTriple();
                     this.DataContext = tt;
-                    order.Add(tt);
+                    AddToOrder(tt);
                 }
                 if (button == button3)
                 {
                     SmokehouseSkeleton ss = new SmokehouseSkeleton();
                     this.DataContext = ss;
-                    order.Add(ss);
+                    AddToOrder(ss);
                 }
                 if (button == button4)
                 {
                     GardenOrcOmelette go = new GardenOrcOmelette();
                     this.DataContext = go;
-                    order.Add(go);
+                    AddToOrder(go);
                 }
                 if (button == button5)
                 {
                     PhillyPoacher pp = new PhillyPoacher();
                     this.DataContext = pp;
-                    order.Add(pp);
+                    AddToOrder(pp);
                 }
                 if (button == button6)
                 {
                     ThugsTBone tt = new ThugsTBone();
                     this.DataContext = tt;
-                    order.Add(tt);
+                    AddToOrder(tt);
                 }
 
                 customizeWindow.Child = new ItemCustomization(button.Content.ToString());

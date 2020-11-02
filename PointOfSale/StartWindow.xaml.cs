@@ -27,6 +27,7 @@ namespace PointOfSale
     public partial class StartWindow : UserControl
     {
         private Order order;
+        private Combo combo;
 
         public StartWindow(Order order)
         {
@@ -44,7 +45,7 @@ namespace PointOfSale
             entreesButton.Visibility = Visibility.Hidden;
             sidesButton.Visibility = Visibility.Hidden;
             drinksButton.Visibility = Visibility.Hidden;
-            menuComponentPlace.Child = new EntreeMenu(order);
+            menuComponentPlace.Child = new EntreeMenu(order, combo);
         }
 
         /// <summary>
@@ -71,6 +72,23 @@ namespace PointOfSale
             sidesButton.Visibility = Visibility.Hidden;
             drinksButton.Visibility = Visibility.Hidden;
             menuComponentPlace.Child = new DrinkMenu(order);
+        }
+
+        void ComboButtonClick(object sender, RoutedEventArgs e)
+        {
+            if(comboButton.Content as String == "Combo")
+            {
+                comboButton.Content = "Add Combo";
+                order.IsCombo = true;
+                combo = new Combo();
+            }
+            else
+            {
+                comboButton.Content = "Combo";
+                order.Add(combo);
+                order.IsCombo = false;
+                combo = null;
+            }
         }
 
         /// <summary>

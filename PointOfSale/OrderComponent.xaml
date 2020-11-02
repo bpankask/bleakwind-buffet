@@ -18,7 +18,7 @@
                 <DataTemplate>
                     <StackPanel>
                         <DockPanel>
-                            <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding}" DockPanel.Dock="Left"/>
+                            <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=Name}" DockPanel.Dock="Left"/>
                             <TextBlock FontSize="15" FontWeight="Bold" Text="       $"/>
                             <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=Price}" DockPanel.Dock="Right"/>
                         </DockPanel>

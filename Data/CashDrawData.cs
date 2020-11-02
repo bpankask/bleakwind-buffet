@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data
 
         public CashDrawData()
         {
-
+            
         }
 
         public int Pennies 
