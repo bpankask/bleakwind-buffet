@@ -5,6 +5,41 @@
     ViewData["Title"] = "Home page";
 }
 
+<form>
+    <div class="flexInline">
+        <div>
+            <input type="text" name="SearchTerms" />
+            <input type="submit" value="Search">
+        </div>
+        <div>
+            <h4>Order Items</h4>
+            @foreach (String item in Model.OrderCatagories)
+            {
+                <label>
+                    <input type="checkbox" name="OrderItems" value="@item" />
+                    @item
+                </label>
+            }
+        </div>
+
+        <div>
+            <h4>Calories</h4>
+            Between
+            <input name="CalMin" type="number" min="0" max="2000" step="100" placeholder="min" />
+            and
+            <input name="CalMax" type="number" min="0" max="2000" step="100" placeholder="max" />
+        </div>
+
+        <div>
+            <h4>Price</h4>
+            Between
+            <input name="PriceMin" type="number" min="0" max="20" step="1" placeholder="min" />
+            and
+            <input name="PriceMax" type="number" min="0" max="20" step="1" placeholder="max" />
+        </div>
+    </div>
+</form>
+
 <div class="text-center">
     <h1 class="display-4">Bleakwind Buffet</h1>
     <p>
@@ -17,57 +52,63 @@
         <h3>Combine any Entree, Side, and Drink for a dollar off total cost.</h3>
 
         <h2>Entrees</h2>
-
-        @foreach (IOrderItem item in Menu.Entrees())
+        @foreach (IOrderItem item in Model.menuItems)
         {
-            <div class="menuItem">
-                <dive>
-                    <h5>@item</h5>
-                </dive>
-                <div class="price">
-                    $
-                    @item.Price
+            if (item is BleakwindBuffet.Data.Entrees.Entree)
+            {
+                <div class="menuItem">
+                    <dive>
+                        <h5>@item</h5>
+                    </dive>
+                    <div class="price">
+                        $
+                        @item.Price
+                    </div>
+                    <div class="calories">
+                        @item.Calories
+                    </div>
                 </div>
-                <div class="calories">
-                    @item.Calories
-                </div>
-            </div>
+            }
         }
 
         <h2>Sides</h2>
-
-        @foreach (IOrderItem item in Menu.Sides())
+        @foreach (IOrderItem item in Model.menuItems)
         {
-            <div class="menuItem">
-                <dive>
-                    <h5>@item</h5>
-                </dive>
-                <div class="price">
-                    $
-                    @item.Price
+            if (item is BleakwindBuffet.Data.Sides.Side)
+            {
+                <div class="menuItem">
+                    <dive>
+                        <h5>@item</h5>
+                    </dive>
+                    <div class="price">
+                        $
+                        @item.Price
+                    </div>
+                    <div class="calories">
+                        @item.Calories
+                    </div>
                 </div>
-                <div class="calories">
-                    @item.Calories
-                </div>
-            </div>
+            }
         }
 
         <h2>Drinks</h2>
-
-        @foreach (IOrderItem item in Menu.Drinks())
+        @foreach (IOrderItem item in Model.menuItems)
         {
-            <div class="menuItem">
-                <dive>
-                    <h5>@item</h5>
-                </dive>
-                <div class="price">
-                    $
-                    @item.Price
+            if (item is BleakwindBuffet.Data.Drinks.Drink)
+            {
+                <div class="menuItem">
+                    <dive>
+                        <h5>@item</h5>
+                    </dive>
+                    <div class="price">
+                        $
+                        @item.Price
+                    </div>
+                    <div class="calories">
+                        @item.Calories
+                    </div>
                 </div>
-                <div class="calories">
-                    @item.Calories
-                </div>
-            </div>
+            }
         }
     </div>
 </div>

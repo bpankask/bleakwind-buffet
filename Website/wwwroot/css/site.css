@@ -100,3 +100,8 @@ body {
     content: "Calories";
     display: block;
 }
+
+.flexInline{
+    display: flex;
+    flex-direction: row;
+}
