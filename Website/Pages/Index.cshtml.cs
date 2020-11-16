@@ -34,7 +34,12 @@ namespace Website.Pages
         /// <summary>
         /// Holds search terms
         /// </summary>
-        public string SearchTerms { get; set; }
+        public string[] SearchTerms { get; set; }
+
+        /// <summary>
+        /// Used for displaying order catagories
+        /// </summary>
+        public string[] OrderCat { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -50,10 +55,45 @@ namespace Website.Pages
         /// <param name="CalMax"></param>
         public void OnGet(double PriceMin, double PriceMax, double CalMin, double CalMax)
         {
-            menuItems = Menu.Search(Request.Query["SearchTerms"]);
-            menuItems = Menu.FilterByCatagory(menuItems, Request.Query["OrderItems"]);
-            menuItems = Menu.FilterByPrice(menuItems, PriceMin, PriceMax);
-            menuItems = Menu.FilterByCalories(menuItems, CalMin, CalMax);
+            menuItems = Menu.FullMenu;
+            string strToSplit = Request.Query["SearchTerms"];
+
+            //search menu for items matching search
+            if (strToSplit != null)
+            {
+                SearchTerms = strToSplit.Split(' ');
+
+                IEnumerable<IOrderItem> mI1 = menuItems;
+                IEnumerable<IOrderItem> mI2 = Enumerable.Empty<IOrderItem>();
+
+                foreach (string searchTerm in SearchTerms)
+                {
+                    mI1 = menuItems.Where(item => item.ToString() != null && item.ToString().Contains(searchTerm, 
+                        StringComparison.InvariantCultureIgnoreCase) || item.Description.Contains(searchTerm, 
+                        StringComparison.InvariantCultureIgnoreCase));
+
+                    mI2 = mI2.Concat(mI1);
+                }
+
+                menuItems = mI2;
+
+            }
+
+            menuItems = Menu.FilterByCatagory(menuItems, OrderCat);
+
+            //filters by price
+            if (PriceMin >= 0 && PriceMax > 0)
+            {
+                menuItems = menuItems.Where(item => item.Price >= PriceMin && item.Price <= PriceMax);
+            }
+
+            //filters by calories
+            if(CalMin >= 0 && CalMax > 0)
+            {
+                menuItems = menuItems.Where(item => item.Calories >= PriceMin && item.Calories <= CalMax);
+            }
+
+
         }
     }
 }

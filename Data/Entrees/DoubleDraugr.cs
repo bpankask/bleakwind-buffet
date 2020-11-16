@@ -22,6 +22,17 @@ namespace BleakwindBuffet.Data.Entrees
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return " Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+            }
+        }
+
+        /// <summary>
         /// Private field declarations
         /// </summary>
         private bool bun = true;

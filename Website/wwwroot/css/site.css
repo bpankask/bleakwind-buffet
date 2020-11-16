@@ -59,8 +59,8 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
   position: absolute;
@@ -70,38 +70,78 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.background {
-    background-image: url('Images\MainMenu.png');
+h5{
+    margin-bottom: 0px;
+}
+
+.flex-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .menuItem {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: left;
+    margin: 5px;
+}
+
+.grid-item-information {
+    display: grid;
+    grid-template-columns: minmax(auto, .2fr);
+    grid-gap: 0px;
+    grid-template-areas:
+        "description description"
+        "price calories"
+}
+
+.grid-item-information > div {
+    margin: 5px;
+}
+
+.description{
+    grid-area: description;
 }
 
 .price {
-    margin-left: auto;
-    margin-bottom: 20px;
-    border-bottom: 2px solid gray;
+    grid-area: price;
+    text-align: center;
 }
 .price::before{
     content: "Price";
+    font-weight: bold;
     display: block;
     
 }
 
 .calories {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid gray;
+    grid-area: calories;
+    text-align: center;
 }
 
 .calories::before {
     content: "Calories";
+    font-weight: bold;
     display: block;
 }
 
-.flexInline{
+.flex-filter {
     display: flex;
     flex-direction: row;
+    background-color: lightgray;
+}
+
+.flex-filter > div{
+    margin: 20px;
+}
+
+@media (max-width: 490px) {
+    .flex-filter {
+        flex-direction: column;
+    }
+
+    .flex-menu{
+        flex-direction: column;
+    }
 }

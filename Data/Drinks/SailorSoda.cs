@@ -23,6 +23,17 @@ namespace BleakwindBuffet.Data.Drinks
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice";
+            }
+        }
+
+        /// <summary>
         /// Hold name of item for binding 
         /// </summary>
         public string Name

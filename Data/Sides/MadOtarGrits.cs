@@ -23,6 +23,17 @@ namespace BleakwindBuffet.Data.Sides
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Cheesey Grits";
+            }
+        }
+
+        /// <summary>
         /// Hold name of item for binding 
         /// </summary>
         public string Name

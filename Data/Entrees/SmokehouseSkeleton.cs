@@ -22,6 +22,18 @@ namespace BleakwindBuffet.Data.Entrees
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, " +
+                    "and hash browns on the side. Topped with the syrup of your choice.";
+            }
+        }
+
+        /// <summary>
         /// Private field declarations
         /// </summary>
         private bool sausageLink = true;

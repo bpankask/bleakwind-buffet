@@ -23,6 +23,17 @@ namespace BleakwindBuffet.Data.Sides
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Crispy fried potato waffle fries";
+            }
+        }
+
+        /// <summary>
         /// Hold name of item for binding 
         /// </summary>
         public string Name
@@ -47,7 +58,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Get, set size.
         /// </summary>
-        public Size Size
+        public override Size Size
         {
             get => size;
 

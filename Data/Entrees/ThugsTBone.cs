@@ -22,6 +22,17 @@ namespace BleakwindBuffet.Data.Entrees
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Juicy T-Bone, not much else to say";
+            }
+        }
+
+        /// <summary>
         /// Hold name of item for binding 
         /// </summary>
         public string Name

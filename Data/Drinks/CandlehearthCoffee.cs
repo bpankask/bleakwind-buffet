@@ -23,6 +23,17 @@ namespace BleakwindBuffet.Data.Drinks
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Description of item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Fair trade, fresh ground dark roast coffee";
+            }
+        }
+
+        /// <summary>
         /// Hold name of item for binding 
         /// </summary>
         public string Name

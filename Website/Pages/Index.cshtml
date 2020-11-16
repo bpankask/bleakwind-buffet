@@ -6,7 +6,7 @@
 }
 
 <form>
-    <div class="flexInline">
+    <div class="flex-filter">
         <div>
             <input type="text" name="SearchTerms" />
             <input type="submit" value="Search">
@@ -16,7 +16,7 @@
             @foreach (String item in Model.OrderCatagories)
             {
                 <label>
-                    <input type="checkbox" name="OrderItems" value="@item" />
+                    <input type="checkbox" name="OrderCat" value="@item" />
                     @item
                 </label>
             }
@@ -48,29 +48,37 @@
         Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure
         and earned your loot, so spend it with us!
     </p>
-    <div class="background">
-        <h3>Combine any Entree, Side, and Drink for a dollar off total cost.</h3>
 
-        <h2>Entrees</h2>
-        @foreach (IOrderItem item in Model.menuItems)
-        {
-            if (item is BleakwindBuffet.Data.Entrees.Entree)
+    <h3>Combine any Entree, Side, and Drink for a dollar off total cost.</h3>
+
+    <div class="flex-menu">
+        <div>
+            <h2>Entrees</h2>
+            @foreach (IOrderItem item in Model.menuItems)
             {
-                <div class="menuItem">
-                    <dive>
-                        <h5>@item</h5>
-                    </dive>
-                    <div class="price">
-                        $
-                        @item.Price
+                if (item is BleakwindBuffet.Data.Entrees.Entree)
+                {
+                    <div class="menuItem">
+                        <dive>
+                            <h5>@item</h5>
+                        </dive>
+                        <div class="grid-item-information">
+                            <div class="description">
+                                @item.Description
+                            </div>
+                            <div class="price">
+                                $@item.Price
+                            </div>
+                            <div class="calories">
+                                @item.Calories
+                            </div>
+                        </div>
                     </div>
-                    <div class="calories">
-                        @item.Calories
-                    </div>
-                </div>
+                }
             }
-        }
+        </div>
 
+        <div>
         <h2>Sides</h2>
         @foreach (IOrderItem item in Model.menuItems)
         {
@@ -80,35 +88,47 @@
                     <dive>
                         <h5>@item</h5>
                     </dive>
-                    <div class="price">
-                        $
-                        @item.Price
-                    </div>
-                    <div class="calories">
-                        @item.Calories
+                    <div class="grid-item-information">
+                        <div class="description">
+                            @item.Description
+                        </div>
+                        <div class="price">
+                            $@item.Price
+                        </div>
+                        <div class="calories">
+                            @item.Calories
+                        </div>
                     </div>
                 </div>
             }
         }
+        </div>
 
-        <h2>Drinks</h2>
-        @foreach (IOrderItem item in Model.menuItems)
-        {
-            if (item is BleakwindBuffet.Data.Drinks.Drink)
+        <div>
+            <h2>Drinks</h2>
+            @foreach (IOrderItem item in Model.menuItems)
             {
-                <div class="menuItem">
-                    <dive>
-                        <h5>@item</h5>
-                    </dive>
-                    <div class="price">
-                        $
-                        @item.Price
+                if (item is BleakwindBuffet.Data.Drinks.Drink)
+                {
+                    <div class="menuItem">
+                        <dive>
+                            <h5>@item</h5>
+                        </dive>
+                        <div class="grid-item-information">
+                            <div class="description">
+                                @item.Description
+                            </div>
+                            <div class="price">
+                                $@item.Price
+                            </div>
+                            <div class="calories">
+                                @item.Calories
+                            </div>
+                        </div>
                     </div>
-                    <div class="calories">
-                        @item.Calories
-                    </div>
-                </div>
+                }
             }
-        }
+        </div>
+
     </div>
 </div>

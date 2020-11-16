@@ -24,6 +24,14 @@ namespace BleakwindBuffet.Data
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Description
+        {
+            get
+            {
+                return "";
+            }
+        }
+
         /// <summary>
         /// Private backing variables
         /// </summary>
